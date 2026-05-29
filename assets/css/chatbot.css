@@ -1,0 +1,141 @@
+/*
+  VITALITY CHATBOT styles
+*/
+
+/* FAB trigger button */
+#ai-fab{position:fixed;bottom:2rem;right:2rem;z-index:600}
+#ai-fab-btn{
+  width:58px;height:58px;
+  background:linear-gradient(135deg,var(--cyan),var(--purple));
+  border:none;color:#fff;font-family:var(--display);font-size:0.72rem;font-weight:800;
+  cursor:pointer;border-radius:18px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  transition:all 0.25s cubic-bezier(0.25,0.1,0.25,1);
+  box-shadow:0 4px 20px var(--cyan-glow),0 0 0 1px rgba(0,212,255,0.2);
+  letter-spacing:0.05em;
+}
+#ai-fab-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 12px 35px var(--cyan-glow)}
+#ai-fab-btn .fab-icon{font-size:1.2rem;line-height:1}
+#ai-fab-btn .fab-label{font-size:0.55rem;letter-spacing:0.12em;opacity:0.85}
+#ai-badge{
+  position:absolute;top:-4px;right:-4px;width:14px;height:14px;
+  background:var(--green);border-radius:50%;border:2px solid var(--bg);
+  animation:pulse 2s infinite;box-shadow:0 0 8px var(--green);
+}
+
+/* ── Full-screen backdrop ── */
+#ai-backdrop{
+  position:fixed;inset:0;z-index:700;
+  background:rgba(6,6,16,0.75);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s ease;
+}
+#ai-backdrop.open{opacity:1;pointer-events:auto}
+
+/* ── Centered full-height panel ── */
+#ai-panel{
+  position:fixed;
+  top:50%;left:50%;
+  transform:translate(-50%,-48%) scale(0.97);
+  width:min(680px,calc(100vw - 2rem));
+  height:min(82vh,760px);
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  border-radius:24px;
+  z-index:800;
+  display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 32px 90px rgba(0,0,0,0.7),0 0 0 1px rgba(0,212,255,0.12);
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s cubic-bezier(0.25,0.1,0.25,1),transform 0.3s cubic-bezier(0.25,0.1,0.25,1);
+}
+#ai-panel.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+
+/* ── Header ── */
+#ai-hdr{
+  padding:1.1rem 1.5rem;
+  border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  background:linear-gradient(135deg,rgba(0,212,255,0.07),rgba(124,58,237,0.09));
+  flex-shrink:0;
+}
+.ai-hdr-info{display:flex;align-items:center;gap:0.8rem}
+.ai-hdr-avatar{
+  width:40px;height:40px;border-radius:12px;
+  background:linear-gradient(135deg,var(--cyan),var(--purple));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;box-shadow:0 4px 14px var(--cyan-glow);flex-shrink:0;
+}
+.ai-hdr-name{font-family:var(--display);font-size:1rem;font-weight:800;color:var(--cyan);letter-spacing:0.02em}
+.ai-hdr-sub{font-size:0.65rem;color:var(--text3);letter-spacing:0.06em;margin-top:2px}
+.ai-hdr-right{display:flex;align-items:center;gap:0.6rem}
+.ai-online{display:flex;align-items:center;gap:0.3rem;font-size:0.62rem;color:var(--green);font-weight:600;letter-spacing:0.08em}
+.ai-online::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:pulse 2s infinite}
+
+/* New Chat button */
+#ai-clear-btn{
+  background:var(--glass);border:1px solid var(--border2);color:var(--text2);
+  cursor:pointer;font-family:var(--body);font-size:0.72rem;font-weight:600;
+  letter-spacing:0.04em;padding:0.35rem 0.8rem;border-radius:8px;
+  transition:all 0.2s;display:flex;align-items:center;gap:0.35rem;
+  white-space:nowrap;
+}
+#ai-clear-btn:hover{border-color:var(--cyan);color:var(--cyan);background:var(--cyan-glow2)}
+#ai-clear-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* Close button */
+#ai-close{background:var(--glass);border:1px solid var(--border2);color:var(--text2);cursor:pointer;font-size:1rem;transition:all 0.2s;line-height:1;padding:0.35rem 0.55rem;border-radius:8px}
+#ai-close:hover{border-color:rgba(255,80,80,0.4);color:#ff6b6b;background:rgba(255,80,80,0.08)}
+
+/* ── Suggestion chips ── */
+#ai-chips{padding:0.65rem 1rem;display:flex;flex-wrap:wrap;gap:0.4rem;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.12);flex-shrink:0;min-height:44px}
+.chip{padding:0.3rem 0.85rem;background:var(--glass);border:1px solid var(--border2);color:var(--text3);font-family:var(--body);font-size:0.72rem;font-weight:500;letter-spacing:0.04em;cursor:pointer;transition:all 0.18s;border-radius:100px}
+.chip:hover{border-color:var(--cyan);color:var(--cyan);background:var(--cyan-glow2);transform:translateY(-1px)}
+.chip:active{transform:translateY(0)}
+
+/* ── Message area ── */
+#ai-msgs{flex:1;overflow-y:auto;padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:0.8rem;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;scroll-behavior:smooth;min-height:0}
+#ai-msgs::-webkit-scrollbar{width:4px}
+#ai-msgs::-webkit-scrollbar-track{background:transparent}
+#ai-msgs::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
+
+.msg-timestamp{text-align:center;font-size:0.65rem;color:var(--text3);letter-spacing:0.08em;padding:0.25rem 0;display:flex;align-items:center;gap:0.75rem}
+.msg-timestamp::before,.msg-timestamp::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* Message bubbles */
+.msg{max-width:82%;padding:0.8rem 1.1rem;font-size:0.82rem;line-height:1.72;color:var(--text);border-radius:16px;animation:msg-in 0.25s cubic-bezier(0.25,0.1,0.25,1);word-break:break-word}
+@keyframes msg-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.msg.bot{background:var(--glass2);border:1px solid var(--border);align-self:flex-start;border-radius:4px 16px 16px 16px}
+.msg.bot strong{color:var(--cyan)}
+.msg.bot a{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(0,212,255,0.3);transition:border-color 0.2s}
+.msg.bot a:hover{border-bottom-color:var(--cyan)}
+
+.msg.user{background:linear-gradient(135deg,rgba(0,212,255,0.16),rgba(124,58,237,0.12));border:1px solid rgba(0,212,255,0.22);align-self:flex-end;border-radius:16px 4px 16px 16px}
+
+/* Typing indicator */
+.msg.typing{align-self:flex-start;background:var(--glass2);border:1px solid var(--border);border-radius:4px 16px 16px 16px;padding:0.7rem 1.1rem}
+.typing-dots{display:flex;gap:5px;align-items:center}
+.typing-dots span{width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.35;animation:tdot 1.4s ease-in-out infinite}
+.typing-dots span:nth-child(2){animation-delay:0.22s}
+.typing-dots span:nth-child(3){animation-delay:0.44s}
+@keyframes tdot{0%,60%,100%{transform:translateY(0);opacity:0.35}30%{transform:translateY(-6px);opacity:1}}
+
+/* Input row */
+#ai-input-row{padding:0.9rem 1.25rem;border-top:1px solid var(--border);display:flex;gap:0.5rem;align-items:center;background:rgba(0,0,0,0.08);flex-shrink:0}
+#ai-inp{flex:1;background:var(--glass);border:1px solid var(--border2);border-radius:12px;color:var(--text);font-family:var(--body);font-size:max(16px,0.85rem);padding:0.65rem 1rem;outline:none;transition:border-color 0.2s,box-shadow 0.2s}
+#ai-inp:focus{border-color:var(--cyan);box-shadow:0 0 0 3px var(--cyan-glow3)}
+#ai-inp::placeholder{color:var(--text3)}
+#ai-inp:disabled{opacity:0.45;cursor:not-allowed}
+#ai-send{background:linear-gradient(135deg,var(--cyan),var(--cyan2));border:none;color:#000;padding:0.65rem 1.2rem;cursor:pointer;font-family:var(--display);font-size:0.85rem;font-weight:800;transition:all 0.2s;border-radius:12px;flex-shrink:0;letter-spacing:0.02em}
+#ai-send:hover{transform:scale(1.05);box-shadow:0 4px 16px var(--cyan-glow)}
+#ai-send:disabled{opacity:0.4;cursor:not-allowed;transform:none}
+
+.ai-input-hint{font-size:0.62rem;color:var(--text3);padding:0 1.5rem 0.6rem;letter-spacing:0.04em;flex-shrink:0;background:rgba(0,0,0,0.08)}
+
+.session-divider{text-align:center;font-size:0.65rem;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase;display:flex;align-items:center;gap:0.65rem;margin:0.5rem 0}
+.session-divider::before,.session-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+
+

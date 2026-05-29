@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+
+<!-- ═══ Primary SEO ═══ -->
+<title>Bitan Chakraborty | Software Engineer Portfolio</title>
+<meta name="description" content="Bitan Chakraborty — Software Engineer, Full Stack Developer and AI/ML Enthusiast. Explore projects, certifications, resume, and experience."/>
+<meta name="keywords" content="Bitan Chakraborty, Software Engineer, Full Stack Developer, React, Node.js, Python, AI ML, Kolkata, Portfolio, MERN Stack, Data Analytics"/>
+<meta name="author" content="Bitan Chakraborty"/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#060610"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link rel="canonical" href="https://bitan01111.github.io/"/>
+
+<!-- ═══ Open Graph (LinkedIn, Facebook, WhatsApp previews) ═══ -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://bitan01111.github.io/"/>
+<meta property="og:title" content="Bitan Chakraborty | Software Engineer Portfolio"/>
+<meta property="og:description" content="Bitan Chakraborty — Software Engineer, Full Stack Developer and AI/ML Enthusiast. Explore projects, certifications, resume, and experience."/>
+<meta property="og:image" content="https://bitan01111.github.io/og-preview.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:site_name" content="Bitan Chakraborty Portfolio"/>
+<meta property="og:locale" content="en_IN"/>
+
+<!-- ═══ Twitter / X Card ═══ -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Bitan Chakraborty | Software Engineer Portfolio"/>
+<meta name="twitter:description" content="Bitan Chakraborty — Software Engineer, Full Stack Developer and AI/ML Enthusiast. Explore projects, certifications, resume, and experience."/>
+<meta name="twitter:image" content="https://bitan01111.github.io/og-preview.png"/>
+
+<!-- ═══ Favicon (place favicon.png / favicon.ico in repo root) ═══ -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon.png"/>
+<link rel="apple-touch-icon" href="favicon.png"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+
+<!-- ═══ JSON-LD Structured Data (Google rich results) ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Bitan Chakraborty",
+  "url": "https://bitan01111.github.io/",
+  "jobTitle": "Software Engineer",
+  "description": "Full Stack Developer and AI/ML Enthusiast based in Kolkata, India.",
+  "email": "chakrabortybitan679@gmail.com",
+  "sameAs": [
+    "https://github.com/bitan01111",
+    "https://linkedin.com/in/bitan-chakraborty-b11955274",
+    "https://leetcode.com/u/4m2ECO46V7/"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kolkata",
+    "addressRegion": "West Bengal",
+    "addressCountry": "IN"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/nav.css">
+<link rel="stylesheet" href="assets/css/hero.css">
+<link rel="stylesheet" href="assets/css/sections.css">
+<link rel="stylesheet" href="assets/css/chatbot.css">
+<link rel="stylesheet" href="assets/css/modals.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<!-- Star background -->
+<canvas id="star-canvas"></canvas>
+
+<!-- Ambient orbs -->
+<div class="bg-orb orb1" aria-hidden="true"></div>
+<div class="bg-orb orb2" aria-hidden="true"></div>
+<div class="bg-orb orb3" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#" onclick="showPage('home');return false">Bitan<span>.</span></a>
+  <div class="nav-links" id="nav-links">
+    <a href="#" onclick="scrollToSection('projects-section');return false" data-page="projects">Projects</a>
+    <a href="#" onclick="scrollToSection('credentials-section');return false" data-page="credentials">Credentials</a>
+    <a href="#" onclick="scrollToSection('forge-section');return false" data-page="forge">Forge</a>
+    <a href="#" onclick="scrollToSection('persona-section');return false" data-page="persona">Persona</a>
+    <a href="#" onclick="scrollToSection('resume-section');return false" data-page="resume">Resume</a>
+    <a href="#" onclick="openSourceModal();return false" data-page="source" style="color:var(--cyan);border:1px solid rgba(0,212,255,0.25);border-radius:8px;padding:0.35rem 0.9rem;">⟨/⟩ Source</a>
+  </div>
+  <div class="nav-right">
+
+    <button class="ctrl-btn theme-btn" id="theme-btn" onclick="toggleTheme()">☀ Light</button>
+    <button class="ctrl-btn" onclick="toggleAI()" title="Chat with Vitality AI" style="border-color:rgba(0,212,255,0.4);color:var(--cyan);display:flex;align-items:center;gap:0.35rem"><span style="font-size:0.85rem">🤖</span> Ask AI</button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ══════════════ HOME (FULL SCROLL PAGE) ══════════════ -->
+<div id="home" class="active">
+
+  <!-- HERO SECTION -->
+  <div class="hero-section">
+    <div class="orbit-ring"></div>
+    <div class="orbit-ring"></div>
+    <div class="orbit-ring"></div>
+
+    <!-- floating tech icons -->
+    <div class="float-icon fi-2" style="top:18%;left:8%"><div class="fi-box">⚛</div><div class="fi-label">React</div></div>
+    <div class="float-icon fi-3" style="top:25%;right:8%"><div class="fi-box">🐍</div><div class="fi-label">Python</div></div>
+    <div class="float-icon fi-4" style="bottom:28%;left:6%"><div class="fi-box">🟢</div><div class="fi-label">Node.js</div></div>
+    <div class="float-icon fi-5" style="bottom:25%;right:6%"><div class="fi-box">🔷</div><div class="fi-label">TypeScript</div></div>
+    <div class="float-icon fi-6" style="top:60%;left:12%"><div class="fi-box">🤖</div><div class="fi-label">AI/ML</div></div>
+    <div class="float-icon" style="top:55%;right:10%"><div class="fi-box">🗄</div><div class="fi-label">Firebase</div></div>
+
+    <div class="hero-inner">
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        <span id="open-text">Open to Internships</span>
+      </div>
+
+      <div class="hero-tag"><div class="dot"></div> Hello! I'm — Aspiring Software Engineer</div>
+
+      <h1 class="hero-name">
+        <span class="name-white">BITAN</span><br/>
+        <span class="name-glow">CHAKRABORTY</span>
+      </h1>
+
+      <div class="hero-bg-word" id="hero-bg-word">PROGRAMMER</div>
+
+      <p class="hero-role"><span id="typed-role"></span></p>
+
+      <p class="hero-desc" id="hero-desc-text">Building intelligent, data-driven software at the intersection of <strong>full-stack engineering</strong> and <strong>machine learning</strong>. B.Tech CSE @ Techno Main Salt Lake, Kolkata.</p>
+
+      <div class="hero-actions">
+        <a href="#projects-section" class="btn-primary" onclick="scrollToSection('projects-section');return false">View Projects →</a>
+        <a href="https://drive.google.com/uc?export=download&id=1jyhCg7VQLh1wGTkb9smi0K7WOU2P6JfH" target="_blank" rel="noopener" class="btn-outline">↓ Resume</a>
+        <a href="#persona-section" class="btn-outline" onclick="scrollToSection('persona-section');return false">Get in Touch →</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="h-stat"><div class="h-stat-num">200+</div><div class="h-stat-label">LeetCode Problems</div></div>
+        <div class="h-stat"><div class="h-stat-num">5</div><div class="h-stat-label">Certifications</div></div>
+        <div class="h-stat"><div class="h-stat-num">3+</div><div class="h-stat-label">Live Projects</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECH STRIP -->
+  <div class="tech-strip" aria-hidden="true">
+    <div class="tech-track">
+      <span class="tech-item"><b>◆</b> React</span><span class="tech-item"><b>◆</b> TypeScript</span><span class="tech-item"><b>◆</b> Node.js</span><span class="tech-item"><b>◆</b> Python</span><span class="tech-item"><b>◆</b> PostgreSQL</span><span class="tech-item"><b>◆</b> Firebase</span><span class="tech-item"><b>◆</b> MongoDB</span><span class="tech-item"><b>◆</b> Scikit-learn</span><span class="tech-item"><b>◆</b> Pandas</span><span class="tech-item"><b>◆</b> Tailwind CSS</span><span class="tech-item"><b>◆</b> Express.js</span><span class="tech-item"><b>◆</b> Git</span><span class="tech-item"><b>◆</b> Java</span><span class="tech-item"><b>◆</b> DSA</span>
+      <span class="tech-item"><b>◆</b> React</span><span class="tech-item"><b>◆</b> TypeScript</span><span class="tech-item"><b>◆</b> Node.js</span><span class="tech-item"><b>◆</b> Python</span><span class="tech-item"><b>◆</b> PostgreSQL</span><span class="tech-item"><b>◆</b> Firebase</span><span class="tech-item"><b>◆</b> MongoDB</span><span class="tech-item"><b>◆</b> Scikit-learn</span><span class="tech-item"><b>◆</b> Pandas</span><span class="tech-item"><b>◆</b> Tailwind CSS</span><span class="tech-item"><b>◆</b> Express.js</span><span class="tech-item"><b>◆</b> Git</span><span class="tech-item"><b>◆</b> Java</span><span class="tech-item"><b>◆</b> DSA</span>
+    </div>
+  </div>
+
+  <!-- QUICK NAV GRID -->
+  <div class="home-grid">
+    <div class="home-grid-item" onclick="scrollToSection('projects-section')"><div class="hgi-label">Selected Work</div><div class="hgi-val">Projects</div><div class="hgi-arrow">→</div></div>
+    <div class="home-grid-item" onclick="scrollToSection('credentials-section')"><div class="hgi-label">Verified Learning</div><div class="hgi-val">Credentials</div><div class="hgi-arrow">→</div></div>
+    <div class="home-grid-item" onclick="scrollToSection('forge-section')"><div class="hgi-label">Technical Arsenal</div><div class="hgi-val">Forge</div><div class="hgi-arrow">→</div></div>
+    <div class="home-grid-item" onclick="scrollToSection('persona-section')"><div class="hgi-label">Who I Am</div><div class="hgi-val">Persona</div><div class="hgi-arrow">→</div></div>
+  </div>
+
+  <!-- ── PROJECTS SECTION ── -->
+  <div class="home-section" id="projects-section">
+    <span class="sec-tag rev">Portfolio</span>
+    <h1 class="sec-h1 rev d1"><em>Selected</em> Works</h1>
+    <p class="sec-sub rev d2">3 projects · full-stack, data analytics &amp; ML</p>
+    <div class="proj-filters rev d3">
+      <button class="filter-btn active" onclick="filterProj('all',this)">All</button>
+      <button class="filter-btn" onclick="filterProj('fullstack',this)">Full Stack</button>
+      <button class="filter-btn" onclick="filterProj('ml',this)">ML / AI</button>
+      <button class="filter-btn" onclick="filterProj('data',this)">Data Analytics</button>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card" data-cat="fullstack">
+        <div class="proj-num">01 / FULLSTACK</div>
+        <div class="proj-name">Foodiegasm</div>
+        <div class="proj-tags-row"><span class="proj-tag">React</span><span class="proj-tag">Firebase</span><span class="proj-tag">JavaScript</span><span class="proj-tag">Full Stack</span><span class="proj-tag">Real-time</span></div>
+        <p class="proj-desc">A full-stack food discovery platform featuring restaurant browsing, wishlist management, and multi-criteria filtering (veg/non-veg, cuisine, rating). Firebase powers real-time data persistence and user session management — delivering smooth cross-device performance.</p>
+        <div class="proj-links">
+          <a href="https://foodie-gasm.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link live">🚀 Live Demo</a>
+          <a href="https://github.com/bitan01111" target="_blank" rel="noopener noreferrer" class="proj-link">💻 GitHub Code</a>
+        </div>
+      </div>
+      <div class="proj-card" data-cat="data">
+        <div class="proj-num">02 / DATA ANALYTICS</div>
+        <div class="proj-name">IPL Analytics Dashboard</div>
+        <div class="proj-tags-row"><span class="proj-tag">Python</span><span class="proj-tag">Pandas</span><span class="proj-tag">NumPy</span><span class="proj-tag">Matplotlib</span><span class="proj-tag">EDA</span></div>
+        <p class="proj-desc">Processed and analyzed 50,000+ IPL match records to uncover player performance trends, team win rates, and key statistical patterns. Interactive dashboards with heatmaps, charts, and comparisons enabling data-driven insights.</p>
+        <div class="proj-links">
+          <a href="https://ipl-intel.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link live">🚀 Live Demo</a>
+          <a href="https://github.com/bitan01111" target="_blank" rel="noopener noreferrer" class="proj-link">💻 GitHub Code</a>
+        </div>
+      </div>
+      <div class="proj-card" data-cat="ml">
+        <div class="proj-num">03 / ML · AI</div>
+        <div class="proj-name">Student Performance Prediction</div>
+        <div class="proj-tags-row"><span class="proj-tag">Python</span><span class="proj-tag">Scikit-learn</span><span class="proj-tag">Logistic Regression</span><span class="proj-tag">Decision Tree</span><span class="proj-tag">ML Pipeline</span></div>
+        <p class="proj-desc">End-to-end supervised ML classification pipeline predicting student academic outcomes using behavioral, demographic, and academic features. Includes data preprocessing, feature engineering, model selection, and F1-score evaluation.</p>
+        <div class="proj-links">
+          <a href="https://edu-predict-ai.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link live">🚀 Live Demo</a>
+          <a href="https://github.com/bitan01111" target="_blank" rel="noopener noreferrer" class="proj-link">💻 GitHub Code</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)">
+      <a href="https://github.com/bitan01111" target="_blank" class="btn-outline">View All on GitHub ↗</a>
+    </div>
+  </div>
+
+  <hr class="sec-divider"/>
+
+  <!-- ── CREDENTIALS SECTION ── -->
+  <div class="home-section" id="credentials-section">
+    <span class="sec-tag rev">Achievements</span>
+    <h1 class="sec-h1 rev d1">My <em>Credentials</em></h1>
+    <p class="sec-sub rev d2">5 certificates · click any entry to view</p>
+    <div class="proj-filters rev d3">
+      <button class="filter-btn active" onclick="filterCred('all',this)">All 5</button>
+      <button class="filter-btn" onclick="filterCred('python',this)">Python</button>
+      <button class="filter-btn" onclick="filterCred('ai',this)">AI / ML</button>
+      <button class="filter-btn" onclick="filterCred('web',this)">Web Dev</button>
+      <button class="filter-btn" onclick="filterCred('data',this)">Data Science</button>
+    </div>
+    <div class="cred-grid" id="cred-grid">
+      <a class="cred-card rev d1" href="https://ude.my/UC-eb8b1f01-97ba-4d64-8c86-d782f1d68ed1" target="_blank" rel="noopener" data-cat="python">
+        <div class="cred-issuer">Udemy</div>
+        <div class="cred-title">Python &amp; Data Structures and Algorithms Bootcamp</div>
+        <div class="cred-date">Udemy Certification</div>
+        <div class="cred-pills"><span class="cred-pill">Python</span><span class="cred-pill">DSA</span><span class="cred-pill">LeetCode</span><span class="cred-pill">Problem Solving</span></div>
+        <div class="cred-open">View Certificate →</div>
+      </a>
+      <a class="cred-card rev d2" href="https://ude.my/UC-9f6ed70b-eb08-4b54-a83a-e5cf117977ba" target="_blank" rel="noopener" data-cat="ai">
+        <div class="cred-issuer">Udemy</div>
+        <div class="cred-title">Artificial Intelligence in Healthcare</div>
+        <div class="cred-date">Udemy Certification</div>
+        <div class="cred-pills"><span class="cred-pill">AI</span><span class="cred-pill">Healthcare</span><span class="cred-pill">Machine Learning</span></div>
+        <div class="cred-open">View Certificate →</div>
+      </a>
+      <a class="cred-card rev d3" href="https://ude.my/UC-d042fae9-78c2-45b1-b591-739c905bd593" target="_blank" rel="noopener" data-cat="web">
+        <div class="cred-issuer">Udemy</div>
+        <div class="cred-title">CSS, JavaScript, PHP &amp; Python — All in One Course</div>
+        <div class="cred-date">Udemy Certification</div>
+        <div class="cred-pills"><span class="cred-pill">CSS</span><span class="cred-pill">JavaScript</span><span class="cred-pill">PHP</span><span class="cred-pill">Python</span></div>
+        <div class="cred-open">View Certificate →</div>
+      </a>
+      <a class="cred-card rev d4" href="https://ude.my/UC-a7adf189-b61a-4078-8437-e1520e8abed1" target="_blank" rel="noopener" data-cat="data ai">
+        <div class="cred-issuer">Udemy</div>
+        <div class="cred-title">Complete Data Science, Machine Learning, DL &amp; NLP Bootcamp</div>
+        <div class="cred-date">Udemy Certification</div>
+        <div class="cred-pills"><span class="cred-pill">Data Science</span><span class="cred-pill">ML</span><span class="cred-pill">Deep Learning</span><span class="cred-pill">NLP</span></div>
+        <div class="cred-open">View Certificate →</div>
+      </a>
+      <a class="cred-card rev d5" href="https://ude.my/UC-661605c3-85d1-44fd-a9ad-25848a4e50b2" target="_blank" rel="noopener" data-cat="python web">
+        <div class="cred-issuer">Udemy</div>
+        <div class="cred-title">Python Framework &amp; HTML Course</div>
+        <div class="cred-date">Udemy Certification</div>
+        <div class="cred-pills"><span class="cred-pill">Python</span><span class="cred-pill">HTML</span><span class="cred-pill">Web Framework</span></div>
+        <div class="cred-open">View Certificate →</div>
+      </a>
+    </div>
+  </div>
+
+  <hr class="sec-divider"/>
+
+  <!-- ── FORGE (SKILLS) SECTION ── -->
+  <div class="home-section" id="forge-section">
+    <span class="sec-tag rev">Expertise</span>
+    <h1 class="sec-h1 rev d1">Technical <em>Expertise</em></h1>
+    <p class="sec-sub rev d2">Foundations · Languages · AI / ML · Tools</p>
+
+    <!-- TECH GLOBE -->
+    <div class="tech-globe-wrap rev d2">
+      <canvas id="globe-canvas" width="520" height="520"></canvas>
+      <div class="globe-center-label">TECH<br/>STACK</div>
+    </div>
+
+    <div class="forge-tabs rev d3">
+      <button class="forge-tab active" onclick="forgeTab('foundations',this)">Foundations</button>
+      <button class="forge-tab" onclick="forgeTab('languages',this)">Languages</button>
+      <button class="forge-tab" onclick="forgeTab('aiml',this)">AI / ML</button>
+      <button class="forge-tab" onclick="forgeTab('tools',this)">Tools</button>
+    </div>
+    <div id="forge-foundations" class="forge-panel active">
+      <div class="forge-cat-title">Programming Foundations</div>
+      <p class="forge-cat-desc">Core concepts applied across problem-solving, development, and system design.</p>
+      <div class="skill-grid">
+        <div class="skill-item"><div class="skill-dot"></div>Data Structures</div>
+        <div class="skill-item"><div class="skill-dot"></div>Algorithms</div>
+        <div class="skill-item"><div class="skill-dot"></div>Object-Oriented Programming</div>
+        <div class="skill-item"><div class="skill-dot"></div>Complexity Analysis</div>
+        <div class="skill-item"><div class="skill-dot"></div>DBMS</div>
+        <div class="skill-item"><div class="skill-dot"></div>Operating Systems</div>
+        <div class="skill-item"><div class="skill-dot"></div>Computer Networks</div>
+        <div class="skill-item"><div class="skill-dot"></div>REST Architecture</div>
+      </div>
+    </div>
+    <div id="forge-languages" class="forge-panel">
+      <div class="forge-cat-title">Programming Languages &amp; Frameworks</div>
+      <p class="forge-cat-desc">Languages and frameworks used in production projects and competitive programming.</p>
+      <div class="skill-grid">
+        <div class="skill-item"><div class="skill-dot"></div>JavaScript</div><div class="skill-item"><div class="skill-dot"></div>TypeScript</div>
+        <div class="skill-item"><div class="skill-dot"></div>Python</div><div class="skill-item"><div class="skill-dot"></div>Java</div>
+        <div class="skill-item"><div class="skill-dot"></div>C</div><div class="skill-item"><div class="skill-dot"></div>SQL</div>
+        <div class="skill-item"><div class="skill-dot"></div>React</div><div class="skill-item"><div class="skill-dot"></div>Node.js</div>
+        <div class="skill-item"><div class="skill-dot"></div>Express.js</div><div class="skill-item"><div class="skill-dot"></div>Tailwind CSS</div>
+        <div class="skill-item"><div class="skill-dot"></div>HTML / CSS</div>
+      </div>
+    </div>
+    <div id="forge-aiml" class="forge-panel">
+      <div class="forge-cat-title">AI / ML Stack</div>
+      <p class="forge-cat-desc">Machine learning and data science tools used for real-world analytics and prediction projects.</p>
+      <div class="skill-grid">
+        <div class="skill-item"><div class="skill-dot"></div>Scikit-learn</div><div class="skill-item"><div class="skill-dot"></div>Pandas</div>
+        <div class="skill-item"><div class="skill-dot"></div>NumPy</div><div class="skill-item"><div class="skill-dot"></div>Machine Learning</div>
+        <div class="skill-item"><div class="skill-dot"></div>Deep Learning</div><div class="skill-item"><div class="skill-dot"></div>NLP</div>
+        <div class="skill-item"><div class="skill-dot"></div>Generative AI</div><div class="skill-item"><div class="skill-dot"></div>EDA</div>
+        <div class="skill-item"><div class="skill-dot"></div>Data Visualization</div><div class="skill-item"><div class="skill-dot"></div>Feature Engineering</div>
+        <div class="skill-item"><div class="skill-dot"></div>Matplotlib / Seaborn</div>
+      </div>
+    </div>
+    <div id="forge-tools" class="forge-panel">
+      <div class="forge-cat-title">Tools &amp; Databases</div>
+      <p class="forge-cat-desc">Developer tooling and databases for building and deploying production applications.</p>
+      <div class="skill-grid">
+        <div class="skill-item"><div class="skill-dot"></div>Git / GitHub</div><div class="skill-item"><div class="skill-dot"></div>VS Code</div>
+        <div class="skill-item"><div class="skill-dot"></div>Postman</div><div class="skill-item"><div class="skill-dot"></div>Firebase</div>
+        <div class="skill-item"><div class="skill-dot"></div>PostgreSQL</div><div class="skill-item"><div class="skill-dot"></div>MySQL</div>
+        <div class="skill-item"><div class="skill-dot"></div>MongoDB</div><div class="skill-item"><div class="skill-dot"></div>Supabase</div>
+        <div class="skill-item"><div class="skill-dot"></div>Netlify</div><div class="skill-item"><div class="skill-dot"></div>Vercel</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-divider"/>
+
+  <!-- ── PERSONA (ABOUT) SECTION ── -->
+  <div class="home-section" id="persona-section">
+    <span class="sec-tag rev">Who I Am</span>
+    <h1 class="sec-h1 rev d1">About <em>Me</em></h1>
+    <p class="sec-sub rev d2" id="persona-sub-text">B.Tech CSE · Techno Main Salt Lake · Kolkata · GMT+5:30</p>
+    <div class="persona-grid">
+      <div class="persona-left">
+        <div class="persona-label">About</div>
+        <p class="persona-p rev" id="about-p1">I'm <strong>Bitan Chakraborty</strong>, a Computer Science &amp; Engineering undergraduate at <strong>Techno Main Salt Lake</strong>, Kolkata (Expected May 2027). I build end-to-end software solutions — from responsive React frontends to robust Node.js/Express backends, integrated with modern databases and cloud services.</p>
+        <p class="persona-p rev d1" id="about-p2">My focus is Full Stack Development with the MERN stack, backed by strong DSA foundations and a growing interest in AI/ML. With 200+ LeetCode problems solved and hands-on experience across React, Node.js, PostgreSQL, Supabase, and Firebase, I'm always building something real.</p>
+        <p class="persona-p rev d2" id="about-p3">Actively seeking <strong>internship opportunities</strong> in Software Engineering, Full Stack, or AI/ML — at companies that care about real-world impact.</p>
+        <div class="persona-pillars rev d3">
+          <div class="persona-pillar"><div class="pp-name">Growth</div><p class="pp-desc">An explorer of systems, driven by curiosity and the desire to understand deeply.</p></div>
+          <div class="persona-pillar"><div class="pp-name">Focus</div><p class="pp-desc">Deep work on efficiency and precision — in every layer built and every bug fixed.</p></div>
+          <div class="persona-pillar"><div class="pp-name">Craft</div><p class="pp-desc">Discipline and dedication in every single line of code, every commit, every deploy.</p></div>
+        </div>
+      </div>
+      <div class="persona-right">
+        <div class="persona-label">Timeline</div>
+        <div class="timeline rev">
+          <div class="tl-item"><div class="tl-year">2022</div><div class="tl-body"><div class="tl-title">Started Coding</div><div class="tl-desc">Wrote first lines of code in C. Discovered the power of logical thinking and problem decomposition.</div></div></div>
+          <div class="tl-item"><div class="tl-year">2023</div><div class="tl-body"><div class="tl-title">Python &amp; DSA</div><div class="tl-desc">Dived deep into Python and Data Structures. Completed Udemy Python + DSA Bootcamp. Started solving LeetCode consistently.</div></div></div>
+          <div class="tl-item"><div class="tl-year">2023–24</div><div class="tl-body"><div class="tl-title">Web Development</div><div class="tl-desc">Built responsive frontends with HTML, CSS, JavaScript. Launched Foodiegasm — a full food discovery platform with Firebase backend.</div></div></div>
+          <div class="tl-item"><div class="tl-year">2024</div><div class="tl-body"><div class="tl-title">Full Stack &amp; MERN</div><div class="tl-desc">Mastered React, Node.js, Express.js. Explored PostgreSQL, Supabase, MongoDB. Built RESTful APIs.</div></div></div>
+          <div class="tl-item"><div class="tl-year">2025</div><div class="tl-body"><div class="tl-title">Data Analytics &amp; AI/ML</div><div class="tl-desc">Built IPL Analytics Dashboard analyzing 50,000+ records. Completed Student Performance Prediction ML project. Reached 200+ LeetCode.</div></div></div>
+          <div class="tl-item"><div class="tl-year">2026 →</div><div class="tl-body"><div class="tl-title">Career Goals</div><div class="tl-desc">Seeking internship / full-time roles in Software Engineering or Full Stack Development. Expected graduation May 2027.</div></div></div>
+        </div>
+        <div class="contact-block rev d2">
+          <div class="persona-label" style="margin-top:2rem">Reach Out</div>
+          <div class="contact-row"><span class="cr-label">Email</span><span class="cr-val"><a href="mailto:chakrabortybitan679@gmail.com">chakrabortybitan679@gmail.com</a></span></div>
+          
+          <div class="contact-row"><span class="cr-label">GitHub</span><span class="cr-val"><a href="https://github.com/bitan01111" target="_blank">github.com/bitan01111 ↗</a></span></div>
+          <div class="contact-row"><span class="cr-label">LinkedIn</span><span class="cr-val"><a href="https://linkedin.com/in/bitan-chakraborty-b11955274" target="_blank">linkedin.com/in/bitan-chakraborty ↗</a></span></div>
+          <div class="contact-row"><span class="cr-label">LeetCode</span><span class="cr-val"><a href="https://leetcode.com/u/4m2ECO46V7/" target="_blank">leetcode.com/u/4m2ECO46V7 ↗</a></span></div>
+          <div class="contact-row"><span class="cr-label">Location</span><span class="cr-val">Kolkata, West Bengal, India</span></div>
+        </div>
+        <div style="margin-top:1.5rem;display:flex;gap:0.75rem;flex-wrap:wrap">
+          <a href="mailto:chakrabortybitan679@gmail.com" class="btn-primary">Mail ↗</a>
+          <a href="https://github.com/bitan01111" target="_blank" class="btn-outline">GitHub ↗</a>
+          <a href="https://linkedin.com/in/bitan-chakraborty-b11955274" target="_blank" class="btn-outline">LinkedIn ↗</a>
+        </div>
+        <!-- REAL CONTACT FORM -->
+        <div class="contact-form-panel rev d3" id="contact-form-wrap">
+          <div class="cfp-title">✉️ Send Me a Message</div>
+          <div class="cfp-sub">Fill this out — it goes straight to Bitan's Gmail inbox.</div>
+          <div class="cfp-fields">
+            <div class="cfp-row2">
+              <div class="cfp-group">
+                <label class="cfp-label">Your Name *</label>
+                <input class="cfp-input" id="cf-name" type="text" placeholder="e.g. Rahul Sharma" />
+              </div>
+              <div class="cfp-group">
+                <label class="cfp-label">Your Email *</label>
+                <input class="cfp-input" id="cf-email" type="email" placeholder="your@email.com" />
+              </div>
+            </div>
+            <div class="cfp-group">
+              <label class="cfp-label">Subject *</label>
+              <input class="cfp-input" id="cf-subject" type="text" placeholder="e.g. Internship Opportunity / Collaboration" />
+            </div>
+            <div class="cfp-group">
+              <label class="cfp-label">Message *</label>
+              <textarea class="cfp-input cfp-textarea" id="cf-message" placeholder="Tell Bitan about your opportunity or question..."></textarea>
+            </div>
+            <button class="cfp-btn" id="cf-submit" onclick="submitContactForm()">
+              <span id="cf-btn-text">🚀 Send Message</span>
+            </button>
+            <div id="cf-status" class="cfp-status"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-divider"/>
+
+  <!-- ── RESUME SECTION ── -->
+  <div class="home-section" id="resume-section">
+    <span class="sec-tag rev">Download</span>
+    <h1 class="sec-h1 rev d1">Resume <em>&amp; CV</em></h1>
+    <p class="sec-sub rev d2">ATS-ready · Updated 2026</p>
+
+    <!-- Mobile-friendly download banner -->
+    <div class="resume-dl-banner rev d2">
+      <div class="resume-dl-info">
+        <div class="resume-dl-title">Bitan_Chakraborty_Resume.pdf</div>
+        <div class="resume-dl-meta">ATS-optimised · 1 page · Updated 2026 · Hosted on Google Drive</div>
+      </div>
+      <div class="resume-dl-actions">
+        <a href="https://drive.google.com/uc?export=download&id=1jyhCg7VQLh1wGTkb9smi0K7WOU2P6JfH" target="_blank" rel="noopener"
+           class="btn-primary" id="resume-download-btn">
+          ↓ Download PDF
+        </a>
+        <a href="https://drive.google.com/file/d/1jyhCg7VQLh1wGTkb9smi0K7WOU2P6JfH/view?usp=sharing" target="_blank" rel="noopener"
+           class="btn-outline">
+          👁 View PDF ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile notice -->
+    <div class="resume-mobile-note" id="resume-mobile-note">
+      📱 On mobile? Tap <strong>👁 View Resume</strong> to open in Google Drive, or <strong>↓ Download PDF</strong> to save it to your device. Both buttons work on all phones.
+    </div>
+
+    <!-- FULL INLINE RESUME — readable on every device, no PDF needed -->
+    <div class="resume-wrap resume-inline rev d3">
+
+      <div class="resume-inline-header">
+        <div>
+          <div class="resume-name">Bitan Chakraborty</div>
+          <div class="resume-role">Software Engineer · Full Stack Developer · AI/ML Enthusiast</div>
+          <div class="resume-inline-meta">B.Tech CSE — Techno Main Salt Lake, Kolkata · Expected May 2027</div>
+        </div>
+        <div class="resume-inline-contact">
+          <a href="mailto:chakrabortybitan679@gmail.com">chakrabortybitan679@gmail.com</a>
+          
+          <a href="https://github.com/bitan01111" target="_blank">github.com/bitan01111 ↗</a>
+          <a href="https://linkedin.com/in/bitan-chakraborty-b11955274" target="_blank">linkedin.com/in/bitan-chakraborty ↗</a>
+          <a href="https://leetcode.com/u/4m2ECO46V7/" target="_blank">leetcode.com/u/4m2ECO46V7 ↗</a>
+        </div>
+      </div>
+
+      <div class="resume-section rev">
+        <div class="resume-sec-title">Technical Skills</div>
+        <div class="resume-skill-groups">
+          <div class="rsg-row"><span class="rsg-label">Frontend</span><span class="rsg-val">React · TypeScript · JavaScript · HTML5 · CSS3 · Tailwind CSS</span></div>
+          <div class="rsg-row"><span class="rsg-label">Backend</span><span class="rsg-val">Node.js · Express.js · REST APIs</span></div>
+          <div class="rsg-row"><span class="rsg-label">Databases</span><span class="rsg-val">PostgreSQL · MySQL · MongoDB · Firebase · Supabase</span></div>
+          <div class="rsg-row"><span class="rsg-label">Languages</span><span class="rsg-val">Python · Java · C · SQL</span></div>
+          <div class="rsg-row"><span class="rsg-label">AI / ML</span><span class="rsg-val">Scikit-learn · Pandas · NumPy · Machine Learning · Deep Learning · NLP · Generative AI · EDA</span></div>
+          <div class="rsg-row"><span class="rsg-label">Core CS</span><span class="rsg-val">DSA · OOP · DBMS · Operating Systems · Computer Networks</span></div>
+          <div class="rsg-row"><span class="rsg-label">Tools</span><span class="rsg-val">Git · GitHub · VS Code · Postman · Netlify · Vercel</span></div>
+        </div>
+      </div>
+
+      <div class="resume-section rev d1">
+        <div class="resume-sec-title">Education</div>
+        <div class="resume-edu-item">
+          <div class="resume-edu-left">
+            <div class="rp-name">B.Tech — Computer Science &amp; Engineering</div>
+            <p class="rp-desc">Techno Main Salt Lake, Kolkata · West Bengal, India</p>
+          </div>
+          <div class="resume-edu-right">Expected May 2027</div>
+        </div>
+      </div>
+
+      <div class="resume-section rev d1">
+        <div class="resume-sec-title">Projects</div>
+        <div class="resume-proj">
+          <div class="rp-header">
+            <div class="rp-name">Foodiegasm — Full Stack Food Discovery Platform</div>
+            <div class="rp-links">
+              <a href="https://foodie-gasm.netlify.app/" target="_blank" class="rc-link">Live ↗</a>
+              <a href="https://github.com/bitan01111" target="_blank" class="rc-link">Code ↗</a>
+            </div>
+          </div>
+          <p class="rp-desc">React + Firebase. Restaurant browsing, wishlist management, multi-criteria filtering (veg/non-veg, cuisine, rating), real-time data persistence, fully responsive cross-device UI.</p>
+          <div class="rp-tags"><span>React</span><span>Firebase</span><span>JavaScript</span><span>Full Stack</span></div>
+        </div>
+        <div class="resume-proj">
+          <div class="rp-header">
+            <div class="rp-name">IPL Analytics Dashboard — Cricket Data Analytics</div>
+            <div class="rp-links">
+              <a href="https://ipl-intel.netlify.app/" target="_blank" class="rc-link">Live ↗</a>
+              <a href="https://github.com/bitan01111" target="_blank" class="rc-link">Code ↗</a>
+            </div>
+          </div>
+          <p class="rp-desc">Processed and analyzed 50,000+ IPL match records. Interactive dashboards with heatmaps, player performance trends, team win rate analysis using Python data stack.</p>
+          <div class="rp-tags"><span>Python</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>EDA</span></div>
+        </div>
+        <div class="resume-proj" style="border-bottom:none">
+          <div class="rp-header">
+            <div class="rp-name">Student Performance Prediction — ML Classification</div>
+            <div class="rp-links">
+              <a href="https://edu-predict-ai.netlify.app/" target="_blank" class="rc-link">Live ↗</a>
+              <a href="https://github.com/bitan01111" target="_blank" class="rc-link">Code ↗</a>
+            </div>
+          </div>
+          <p class="rp-desc">End-to-end supervised ML pipeline predicting student academic outcomes. Logistic Regression + Decision Tree classifiers with full feature engineering and F1-score evaluation.</p>
+          <div class="rp-tags"><span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>ML Pipeline</span></div>
+        </div>
+      </div>
+
+      <div class="resume-section rev d2">
+        <div class="resume-sec-title">Certifications</div>
+        <div class="resume-cert"><span class="rc-name">Python &amp; DSA Bootcamp</span><span class="rc-issuer">Udemy</span><a href="https://ude.my/UC-eb8b1f01-97ba-4d64-8c86-d782f1d68ed1" target="_blank" rel="noopener" class="rc-link">View ↗</a></div>
+        <div class="resume-cert"><span class="rc-name">Artificial Intelligence in Healthcare</span><span class="rc-issuer">Udemy</span><a href="https://ude.my/UC-9f6ed70b-eb08-4b54-a83a-e5cf117977ba" target="_blank" rel="noopener" class="rc-link">View ↗</a></div>
+        <div class="resume-cert"><span class="rc-name">CSS, JavaScript, PHP &amp; Python All-in-One</span><span class="rc-issuer">Udemy</span><a href="https://ude.my/UC-d042fae9-78c2-45b1-b591-739c905bd593" target="_blank" rel="noopener" class="rc-link">View ↗</a></div>
+        <div class="resume-cert"><span class="rc-name">Complete Data Science, ML, DL &amp; NLP Bootcamp</span><span class="rc-issuer">Udemy</span><a href="https://ude.my/UC-a7adf189-b61a-4078-8437-e1520e8abed1" target="_blank" rel="noopener" class="rc-link">View ↗</a></div>
+        <div class="resume-cert"><span class="rc-name">Python Framework &amp; HTML Course</span><span class="rc-issuer">Udemy</span><a href="https://ude.my/UC-661605c3-85d1-44fd-a9ad-25848a4e50b2" target="_blank" rel="noopener" class="rc-link">View ↗</a></div>
+      </div>
+
+      <div class="resume-section rev d3">
+        <div class="resume-sec-title">Achievements</div>
+        <div class="resume-achievements">
+          <div class="ra-item">Solved <strong>200+ LeetCode problems</strong> — arrays, trees, graphs, linked lists, dynamic programming</div>
+          <div class="ra-item">Built <strong>3 end-to-end deployed projects</strong> across web development, data analytics, and ML</div>
+          <div class="ra-item">Completed <strong>5 Udemy certifications</strong> across Python, AI/ML, Data Science, and Web Dev</div>
+          <div class="ra-item">Continuously learning modern AI, full-stack, and cloud technologies</div>
+        </div>
+      </div>
+
+    </div><!-- end resume-inline -->
+  </div>
+
+  <footer>
+    <span>© 2026 Bitan Chakraborty · <span style="color:var(--purple);font-weight:600">Private License</span> — All rights reserved. Source shared for review only; reproduction prohibited.</span>
+    <div class="footer-links">
+      <a href="https://github.com/bitan01111" target="_blank">GitHub ↗</a>
+      <a href="https://linkedin.com/in/bitan-chakraborty-b11955274" target="_blank">LinkedIn ↗</a>
+      <a href="https://leetcode.com/u/4m2ECO46V7/" target="_blank">LeetCode ↗</a>
+      <a href="#" onclick="openSourceModal();return false" style="color:var(--cyan)">⟨/⟩ Get Source</a>
+    </div>
+    <span>Kolkata · India · GMT+5:30</span>
+  </footer>
+</div>
+
+<!-- ══════════════ VITALITY CHATBOT ══════════════ -->
+<div id="ai-fab">
+  <button id="ai-fab-btn" onclick="toggleAI()" title="Chat with Vitality — Bitan's Portfolio Assistant">
+    <span class="fab-icon">🤖</span>
+    <span class="fab-label">AI CHAT</span>
+  </button>
+  <div id="ai-badge"></div>
+</div>
+
+<!-- Dimmed backdrop -->
+<div id="ai-backdrop" onclick="toggleAI()"></div>
+
+<!-- Full-screen centered chat panel -->
+<div id="ai-panel">
+  <!-- Header -->
+  <div id="ai-hdr">
+    <div class="ai-hdr-info">
+      <div class="ai-hdr-avatar">✦</div>
+      <div>
+        <div class="ai-hdr-name">VITALITY</div>
+        <div class="ai-hdr-sub">Bitan's Portfolio Assistant</div>
+      </div>
+    </div>
+    <div class="ai-hdr-right">
+      <span class="ai-online">ONLINE</span>
+      <button id="ai-clear-btn" onclick="clearChat()" title="Start a new conversation">
+        <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        New Chat
+      </button>
+      <button id="ai-close" onclick="toggleAI()" title="Close">✕</button>
+    </div>
+  </div>
+
+  <!-- Suggestion chips -->
+  <div id="ai-chips">
+    <button class="chip" onclick="handleQuery('skills')">Tech Stack</button>
+    <button class="chip" onclick="handleQuery('projects')">Projects</button>
+    <button class="chip" onclick="handleQuery('certs')">Certifications</button>
+    <button class="chip" onclick="handleQuery('intern')">Internship?</button>
+    <button class="chip" onclick="handleQuery('resume')">Resume</button>
+    <button class="chip" onclick="handleQuery('contact')">Contact</button>
+  </div>
+
+  <!-- Messages -->
+  <div id="ai-msgs">
+    <div class="msg bot">Hi there! 👋 I'm <strong>VITALITY</strong>, Bitan's portfolio assistant.<br><br>Ask me about his projects, skills, certifications, education, internship availability, and more.</div>
+  </div>
+
+  <!-- Input hint -->
+  <div class="ai-input-hint">Press Enter to send · Click "New Chat" to reset conversation</div>
+
+  <!-- Input row -->
+  <div id="ai-input-row">
+    <input id="ai-inp" placeholder="Ask me anything about Bitan…" onkeydown="if(event.key==='Enter')sendAI()"/>
+    <button id="ai-send" onclick="sendAI()">Send →</button>
+  </div>
+</div>
+
+<!-- ══════════════ LIVE ANALYTICS ══════════════ -->
+<div id="analytics-fab">
+  <button id="analytics-btn" onclick="toggleAnalytics()">
+    <span class="anlive-dot"></span>
+    <span id="live-count">—</span>
+    <span>visitors</span>
+  </button>
+</div>
+<div id="analytics-panel">
+  <div class="analytics-hdr">
+    <div>
+      <div class="analytics-title">Live Analytics</div>
+      <div class="analytics-subtitle">Real-time · This session</div>
+    </div>
+    <button id="analytics-close" onclick="toggleAnalytics()">✕</button>
+  </div>
+  <div class="analytics-body">
+    <div class="an-row"><span class="an-label">Total Visitors</span><span class="an-val" id="an-active">—</span></div>
+    <div class="an-row"><span class="an-label">Total Page Views</span><span class="an-val cyan" id="an-views">—</span></div>
+    <div class="an-row"><span class="an-label">Your Device</span><span class="an-val small" id="an-device">—</span></div>
+    <div class="an-row"><span class="an-label">Your Location</span><span class="an-val small" id="an-location">Kolkata, IN</span></div>
+    <div class="an-row"><span class="an-label">Time on Page</span><span class="an-val small" id="an-time">0s</span></div>
+  </div>
+  <div class="analytics-note">📡 Tracking your session in real-time</div>
+</div>
+
+<!-- ══════════════ GET SOURCE MODAL ══════════════ -->
+<div id="src-backdrop" onclick="srcBackdropClick(event)">
+  <div id="src-modal" role="dialog" aria-modal="true" aria-label="Portfolio Source Code">
+
+    <div class="src-hdr">
+      <div class="src-hdr-left">
+        <div class="src-hdr-title">⟨/⟩ How This Portfolio Is Built</div>
+        <div class="src-hdr-sub">Selected snippets · Full source on GitHub · Private License applies</div>
+      </div>
+      <button class="src-close" onclick="closeSourceModal()" aria-label="Close">✕</button>
+    </div>
+
+    <div class="src-license-banner">
+      <strong>🔒 Private License</strong> — This source code is the exclusive intellectual property of <strong>Bitan Chakraborty</strong>.
+      Snippets are shared for educational reference only. Copying, reproducing, or reusing this code — in whole or in part — without explicit written permission is strictly prohibited.
+      Full source is available on GitHub for portfolio review only.
+    </div>
+
+    <div class="src-tabs">
+      <button class="src-tab active" onclick="srcTab('structure',this)">🏗 Structure</button>
+      <button class="src-tab" onclick="srcTab('styles',this)">🎨 Styles</button>
+      <button class="src-tab" onclick="srcTab('animations',this)">✨ Animations</button>
+      <button class="src-tab" onclick="srcTab('chatbot',this)">🤖 AI Chat</button>
+      <button class="src-tab" onclick="srcTab('globe',this)">🌐 Tech Globe</button>
+    </div>
+
+    <div class="src-body">
+
+      <!-- STRUCTURE TAB -->
+      <div id="src-structure" class="src-panel active">
+        <div class="src-file-label">index.html — Page Architecture</div>
+        <pre class="src-code"><span class="token-comment"><!-- Single-page scroll layout — no frameworks, pure HTML/CSS/JS --></span>
+<body>
+  <canvas id="star-canvas"></canvas>  <span class="token-comment"><!-- Particle stars --></span>
+  <div class="bg-orb orb1"></div>    <span class="token-comment"><!-- Ambient glow orbs --></span>
+
+  <nav> ... </nav>                    <span class="token-comment"><!-- Floating glass navbar --></span>
+
+  <div id="home" class="active">
+    <div class="hero-section">...</div>
+    <div class="tech-strip">...</div>
+    <div id="projects-section">...</div>
+    <div id="credentials-section">...</div>
+    <div id="forge-section">...</div>
+    <div id="persona-section">...</div>
+    <div id="resume-section">...</div>
+    <footer>...</footer>
+  </div>
+
+  <div id="ai-panel">...</div>      <span class="token-comment"><!-- Vitality AI chatbot --></span>
+  <div id="analytics-panel">...</div>
+</body></pre>
+
+        <div class="src-file-label">CSS Variables — Design Tokens</div>
+        <pre class="src-code">:root {
+  --bg: #060610;  --bg2: #0c0c1e;  --bg3: #12122a;
+  --glass: rgba(255,255,255,0.03);
+  --glass2: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.07);
+  --text: #f0f0ff;
+  --text2: rgba(240,240,255,0.6);
+  --cyan: #00d4ff;
+  --cyan-glow: rgba(0,212,255,0.15);
+  --purple: #7c3aed;
+  --green: #00ff88;
+  --display: 'Syne', sans-serif;
+  --body: 'Inter', sans-serif;
+}</pre>
+
+        <div class="src-cta">
+          🔍 This portfolio is a <strong>single HTML file</strong> — no frameworks, no build tools. Pure HTML, CSS, and vanilla JS.
+          View the complete source on <a href="https://github.com/bitan01111" target="_blank" rel="noopener">github.com/bitan01111 ↗</a>
+        </div>
+      </div>
+
+      <!-- STYLES TAB -->
+      <div id="src-styles" class="src-panel">
+        <div class="src-file-label">Glass Morphism — Navbar</div>
+        <pre class="src-code">nav {
+  position: fixed; top: 16px; left: 50%;
+  transform: translateX(-50%);
+  background: rgba(6,6,16,0.75);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4),
+              inset 0 1px 0 rgba(255,255,255,0.08);
+}</pre>
+
+        <div class="src-file-label">Project Cards — Hover Effect</div>
+        <pre class="src-code">.proj-card {
+  background: var(--glass);
+  border: 1px solid var(--border2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.25,0.1,0.25,1);
+}
+.proj-card:hover {
+  border-color: rgba(0,212,255,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 40px rgba(0,212,255,0.1);
+}
+<span class="src-redacted">/* ... additional card gradient overlay logic redacted ... */</span></pre>
+
+        <div class="src-file-label">Light / Dark Mode Toggle</div>
+        <pre class="src-code">body.light {
+  --bg: #f0f2f8;  --bg2: #e8eaf4;
+  --text: #0a0a1e;
+  --cyan: #006890;
+<span class="src-redacted">  /* ... 12 more overridden variables redacted ... */</span>
+}
+function toggleTheme() {
+  document.body.classList.toggle('light');
+  localStorage.setItem('theme',
+    document.body.classList.contains('light') ? 'light' : 'dark'
+  );
+<span class="src-redacted">  /* ... button label update logic redacted ... */</span>
+}</pre>
+
+        <div class="src-cta">
+          Full CSS is approximately <strong>1,200 lines</strong> including all responsive breakpoints (380px → 1100px+).
+          See complete styles at <a href="https://github.com/bitan01111" target="_blank" rel="noopener">github.com/bitan01111 ↗</a>
+        </div>
+      </div>
+
+      <!-- ANIMATIONS TAB -->
+      <div id="src-animations" class="src-panel">
+        <div class="src-file-label">Star Canvas — Particle Background</div>
+        <pre class="src-code">const canvas = document.getElementById('star-canvas');
+const ctx = canvas.getContext('2d');
+const stars = Array.from({length: 180}, () => ({
+  x: Math.random() * W,
+  y: Math.random() * H,
+  r: Math.random() * 1.2 + 0.3,
+  o: Math.random() * 0.6 + 0.1,
+  speed: Math.random() * 0.15 + 0.05
+}));
+<span class="src-redacted">/* ... full draw loop and resize handler redacted ... */</span></pre>
+
+        <div class="src-file-label">Typing Animation — Hero Role</div>
+        <pre class="src-code">const roles = [
+  'Full Stack Developer',
+  'AI / ML Enthusiast',
+  'React Engineer',
+  'Data Analytics Builder',
+  'Open Source Learner'
+];
+// Typewriter loop — types, pauses, erases, repeats
+<span class="src-redacted">/* ... full typewriter function (40 lines) redacted ... */</span></pre>
+
+        <div class="src-file-label">Scroll Reveal — Intersection Observer</div>
+        <pre class="src-code">const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      revObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.rev').forEach(el => revObs.observe(el));</pre>
+
+        <div class="src-file-label">CSS Keyframe Animations</div>
+        <pre class="src-code">@keyframes orbit-rot {
+  from { transform: translate(-50%,-50%) rotate(0deg); }
+  to   { transform: translate(-50%,-50%) rotate(360deg); }
+}
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes scroll-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}</pre>
+
+        <div class="src-cta">
+          All animations are pure CSS + vanilla JS. No animation libraries used.
+          Full implementation on <a href="https://github.com/bitan01111" target="_blank" rel="noopener">github.com/bitan01111 ↗</a>
+        </div>
+      </div>
+
+      <!-- CHATBOT TAB -->
+      <div id="src-chatbot" class="src-panel">
+        <div class="src-file-label">Vitality AI — Knowledge Base Structure</div>
+        <pre class="src-code">// Knowledge base — local JS object, no external API
+const KB = {
+  about:    `...bio text...`,
+  skills:   `...tech stack...`,
+  projects: `...project details...`,
+  contact:  `...links...`,
+<span class="src-redacted">  /* ... 12 more topic keys redacted ... */</span>
+};
+
+// Intent matching — keyword-based router
+function getReply(input) {
+  const q = input.toLowerCase().trim();
+  if (q.includes('project') || q.includes('work'))
+    return KB.projects;
+<span class="src-redacted">  /* ... full intent matching logic (80+ lines) redacted ... */</span>
+}</pre>
+
+        <div class="src-file-label">Chat Panel — Message Rendering</div>
+        <pre class="src-code">function appendMsg(html, role) {
+  const div = document.createElement('div');
+  div.className = `msg ${role}`;
+  div.innerHTML = html;
+  msgsEl.appendChild(div);
+  msgsEl.scrollTop = msgsEl.scrollHeight;
+}
+<span class="src-redacted">/* ... typing indicator, session management, chip UI redacted ... */</span></pre>
+
+        <div class="src-cta">
+          Vitality AI is a <strong>zero-dependency, client-side chatbot</strong> — no OpenAI, no server, no API costs.
+          It runs entirely in the browser using a custom intent-matching engine.
+          Full source at <a href="https://github.com/bitan01111" target="_blank" rel="noopener">github.com/bitan01111 ↗</a>
+        </div>
+      </div>
+
+      <!-- GLOBE TAB -->
+      <div id="src-globe" class="src-panel">
+        <div class="src-file-label">3D Tech Globe — Canvas Renderer</div>
+        <pre class="src-code">// Fibonacci sphere distribution for even point spread
+const pts = techs.map((t, i) => {
+  const golden = Math.PI * (3 - Math.sqrt(5));
+  const y = 1 - (i / (techs.length - 1)) * 2;
+  const r = Math.sqrt(1 - y * y);
+  const theta = golden * i;
+  return {
+    x: Math.cos(theta) * r, y, z: Math.sin(theta) * r,
+    name: t.name, color: t.color
+  };
+});</pre>
+
+        <div class="src-file-label">3D Projection — Rotation Math</div>
+        <pre class="src-code">function project(p) {
+  // Rotate around Y axis
+  const x1 = p.x * Math.cos(rotY) - p.z * Math.sin(rotY);
+  const z1 = p.x * Math.sin(rotY) + p.z * Math.cos(rotY);
+  // Rotate around X axis
+  const y2 = p.y * Math.cos(rotX) - z1 * Math.sin(rotX);
+  const z2 = p.y * Math.sin(rotX) + z1 * Math.cos(rotX);
+  return { sx: cx + x1*R, sy: cy + y2*R, z: z2 };
+}</pre>
+
+        <div class="src-file-label">Globe Draw Loop</div>
+        <pre class="src-code">function drawGlobe() {
+  ctx.clearRect(0, 0, W, H);
+  // Sort by z-depth so far nodes render behind near nodes
+  const projected = pts.map(p => ({...project(p), ...p}));
+  projected.sort((a, b) => a.z - b.z);
+
+  projected.forEach(p => {
+    const alpha = p.z > -0.1 ? Math.max(0.2, 0.5 + p.z*0.5) : 0.08;
+    ctx.globalAlpha = alpha;
+<span class="src-redacted">    /* ... dot + label rendering redacted ... */</span>
+  });
+  if (!isDragging) rotY += 0.006;   // auto-rotate
+  requestAnimationFrame(drawGlobe);
+}</pre>
+
+        <div class="src-cta">
+          The globe is a <strong>pure Canvas 2D renderer</strong> with manual 3D projection — no Three.js, no WebGL.
+          Supports mouse drag + touch interaction. Full source at <a href="https://github.com/bitan01111" target="_blank" rel="noopener">github.com/bitan01111 ↗</a>
+        </div>
+      </div>
+
+    </div><!-- end src-body -->
+  </div><!-- end src-modal -->
+</div><!-- end src-backdrop -->
+
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/animations.js"></script>
+<script src="assets/js/globe.js"></script>
+<script src="assets/js/filters.js"></script>
+<script src="assets/js/chatbot.js"></script>
+<script src="assets/js/contact.js"></script>
+<script src="assets/js/analytics.js"></script>
+<script src="assets/js/source-modal.js"></script>
+</body>
+</html>
+
