@@ -30,11 +30,22 @@ Live site: https://bitanco.netlify.app/
 - **No framework build step** for the portfolio UI: open the HTML file directly.
 - All key behaviors are in split JS modules under `assets/js/`.
 
-## Repository Layout
-- `portfolio/index.html`
-- `portfolio/assets/css/*.css`
-- `portfolio/assets/js/*.js`
-- (Optional) `portfolio/assets/images/*`
+## Repository Layout (modern + recruiter-friendly)
+The live portfolio is in the repo root (so GitHub Pages can serve `index.html` directly):
+
+- `index.html`
+- `assets/css/` (site styles)
+- `assets/js/` (site behavior)
+- `LICENSE`
+
+Reviewer notes (added to make onboarding easier):
+- `docs/`
+  - `docs/a11y.md`
+  - `docs/seo.md`
+  - `docs/privacy.md`
+  - `docs/contact.md`
+  - `docs/README.md`
+
 
 ## Run Locally
 1. Open: `portfolio/index.html` in a browser.
