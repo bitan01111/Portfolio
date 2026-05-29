@@ -166,12 +166,22 @@
   </div>
 
   <!-- QUICK NAV GRID -->
-  <div class="home-grid">
-    <div class="home-grid-item" onclick="scrollToSection('projects-section')"><div class="hgi-label">Selected Work</div><div class="hgi-val">Projects</div><div class="hgi-arrow">→</div></div>
-    <div class="home-grid-item" onclick="scrollToSection('credentials-section')"><div class="hgi-label">Verified Learning</div><div class="hgi-val">Credentials</div><div class="hgi-arrow">→</div></div>
-    <div class="home-grid-item" onclick="scrollToSection('forge-section')"><div class="hgi-label">Technical Arsenal</div><div class="hgi-val">Forge</div><div class="hgi-arrow">→</div></div>
-    <div class="home-grid-item" onclick="scrollToSection('persona-section')"><div class="hgi-label">Who I Am</div><div class="hgi-val">Persona</div><div class="hgi-arrow">→</div></div>
+  <!-- QUICK NAV GRID -->
+  <div class="home-grid" role="navigation" aria-label="Quick navigation">
+    <button class="home-grid-item" type="button" onclick="scrollToSection('projects-section')" aria-label="Go to Projects">
+      <div class="hgi-label">Selected Work</div><div class="hgi-val">Projects</div><div class="hgi-arrow">→</div>
+    </button>
+    <button class="home-grid-item" type="button" onclick="scrollToSection('credentials-section')" aria-label="Go to Credentials">
+      <div class="hgi-label">Verified Learning</div><div class="hgi-val">Credentials</div><div class="hgi-arrow">→</div>
+    </button>
+    <button class="home-grid-item" type="button" onclick="scrollToSection('forge-section')" aria-label="Go to Technical Expertise">
+      <div class="hgi-label">Technical Arsenal</div><div class="hgi-val">Forge</div><div class="hgi-arrow">→</div>
+    </button>
+    <button class="home-grid-item" type="button" onclick="scrollToSection('persona-section')" aria-label="Go to About and Contact">
+      <div class="hgi-label">Who I Am</div><div class="hgi-val">Persona</div><div class="hgi-arrow">→</div>
+    </button>
   </div>
+
 
   <!-- ── PROJECTS SECTION ── -->
   <div class="home-section" id="projects-section">
@@ -392,30 +402,31 @@
         <div class="contact-form-panel rev d3" id="contact-form-wrap">
           <div class="cfp-title">✉️ Send Me a Message</div>
           <div class="cfp-sub">Fill this out — it goes straight to Bitan's Gmail inbox.</div>
-          <div class="cfp-fields">
+            <div class="cfp-fields" role="group" aria-labelledby="contact-form-title">
             <div class="cfp-row2">
               <div class="cfp-group">
-                <label class="cfp-label">Your Name *</label>
-                <input class="cfp-input" id="cf-name" type="text" placeholder="e.g. Rahul Sharma" />
+                <label class="cfp-label" for="cf-name">Your Name *</label>
+                <input class="cfp-input" id="cf-name" type="text" placeholder="e.g. Rahul Sharma" required autocomplete="name" />
               </div>
               <div class="cfp-group">
-                <label class="cfp-label">Your Email *</label>
-                <input class="cfp-input" id="cf-email" type="email" placeholder="your@email.com" />
+                <label class="cfp-label" for="cf-email">Your Email *</label>
+                <input class="cfp-input" id="cf-email" type="email" placeholder="your@email.com" required autocomplete="email" aria-describedby="cf-status" />
               </div>
             </div>
             <div class="cfp-group">
-              <label class="cfp-label">Subject *</label>
-              <input class="cfp-input" id="cf-subject" type="text" placeholder="e.g. Internship Opportunity / Collaboration" />
+              <label class="cfp-label" for="cf-subject">Subject *</label>
+              <input class="cfp-input" id="cf-subject" type="text" placeholder="e.g. Internship Opportunity / Collaboration" required />
             </div>
             <div class="cfp-group">
-              <label class="cfp-label">Message *</label>
-              <textarea class="cfp-input cfp-textarea" id="cf-message" placeholder="Tell Bitan about your opportunity or question..."></textarea>
+              <label class="cfp-label" for="cf-message">Message *</label>
+              <textarea class="cfp-input cfp-textarea" id="cf-message" placeholder="Tell Bitan about your opportunity or question..." required></textarea>
             </div>
-            <button class="cfp-btn" id="cf-submit" onclick="submitContactForm()">
+            <button class="cfp-btn" id="cf-submit" type="button" onclick="submitContactForm()" aria-controls="cf-status">
               <span id="cf-btn-text">🚀 Send Message</span>
             </button>
-            <div id="cf-status" class="cfp-status"></div>
+            <div id="cf-status" class="cfp-status" role="status" aria-live="polite" aria-atomic="true"></div>
           </div>
+
         </div>
       </div>
     </div>
